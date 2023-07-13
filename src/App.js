@@ -1,10 +1,16 @@
-import Button from "./Button";
-import styles from "./App.module.css";
+import { useState, useEffect } from "react";
+
 function App() {
+  const [value, setValue] = useState(0);
+  const onClick = () => setValue((prev) => prev + 1);
+  console.log("I run all the time");
+  useEffect(() => {
+    console.log("CALL THE API....");
+  }, []);
   return (
-    <div className="App">
-      <h1 className={styles.title}>Welcome back!</h1>
-      <Button text={"continue"} />
+    <div>
+      <h1>{value}</h1>
+      <button onClick={onClick}>Click me</button>
     </div>
   );
 }
